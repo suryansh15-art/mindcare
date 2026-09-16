@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindCare Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <div class="brand">
+      <div class="brand-icon">M</div>
+
+      <div>
+        <h2>MindCare</h2>
+        <span>Well-being Intelligence</span>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#" class="active">Overview</a>
+      <a href="checkin.html">Check-in</a>
+      <a href="#">Insights</a>
+      <a href="#">Support</a>
+    </nav>
+
+    <div class="profile-area">
+      <div class="status-dot"></div>
+
+      <div class="profile-text">
+        <strong>User</strong>
+        <span>Private Profile</span>
+      </div>
+
+      <button onclick="logout()">Logout</button>
+    </div>
+
+  </header>
+
+
+  <main class="page-container">
+
+    <section class="hero-section">
+      <div class="live-checkin-card">
+
+  <div>
+
+    <span class="live-label">
+      LATEST CHECK-IN
+    </span>
+
+    <h3 id="latestStatus">
+      No check-in yet
+    </h3>
+
+    <p id="dynamicInsight">
+      Complete your first check-in to begin tracking your well-being pattern.
+    </p>
+
+  </div>
+
+
+  <div class="live-score">
+
+    <span>
+      Indicator
+    </span>
+
+    <strong id="latestScore">
+      --
+    </strong>
+
+  </div>
+
+</div>
+
+      <div class="hero-text">
+
+        <p class="eyebrow">TODAY'S WELL-BEING</p>
+
+        <h1>
+          Good evening.
+          <span>How are you feeling today?</span>
+        </h1>
+
+        <p class="hero-description">
+          A quick emotional check-in helps us understand changes
+          in your well-being over time.
+        </p>
+
+      </div>
+
+
+      <div class="mood-selector">
+
+        <button class="mood-btn" data-mood="Great">
+          <span class="emoji">😌</span>
+          <span>Great</span>
+        </button>
+
+        <button class="mood-btn" data-mood="Good">
+          <span class="emoji">🙂</span>
+          <span>Good</span>
+        </button>
+
+        <button class="mood-btn active" data-mood="Okay">
+          <span class="emoji">😐</span>
+          <span>Okay</span>
+        </button>
+
+        <button class="mood-btn" data-mood="Low">
+          <span class="emoji">😟</span>
+          <span>Low</span>
+        </button>
+
+        <button class="mood-btn" data-mood="Overwhelmed">
+          <span class="emoji">😣</span>
+          <span>Overwhelmed</span>
+        </button>
+
+      </div>
+
+      <p id="moodMessage">
+        Selected mood: Okay
+      </p>
+
+    </section>
+
+
+    <section class="main-grid">
+
+      <div class="trend-card">
+
+        <div class="card-heading">
+
+          <div>
+            <p class="small-label">WELL-BEING TREND</p>
+            <h2>Your last 14 days</h2>
+          </div>
+
+          <span class="stable-tag">Stable</span>
+
+        </div>
+
+
+        <div class="chart-wrapper">
+
+          <svg
+            class="trend-chart"
+            viewBox="0 0 700 250"
+            preserveAspectRatio="none"
+          >
+
+            <defs>
+              <linearGradient
+                id="areaGradient"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
+                <stop
+                  offset="0%"
+                  stop-color="#7ba99b"
+                  stop-opacity="0.35"
+                />
+
+                <stop
+                  offset="100%"
+                  stop-color="#7ba99b"
+                  stop-opacity="0"
+                />
+              </linearGradient>
+            </defs>
+
+
+            <line
+              x1="0"
+              y1="60"
+              x2="700"
+              y2="60"
+              class="grid-line"
+            />
+
+            <line
+              x1="0"
+              y1="125"
+              x2="700"
+              y2="125"
+              class="grid-line"
+            />
+
+            <line
+              x1="0"
+              y1="190"
+              x2="700"
+              y2="190"
+              class="grid-line"
+            />
+
+
+            <path
+              class="area"
+              d="
+                M0,160
+                C60,150 75,125 120,130
+                C170,137 185,175 230,165
+                C280,150 300,90 350,105
+                C405,122 410,145 460,130
+                C520,112 535,95 585,110
+                C625,122 650,85 700,95
+                L700,250
+                L0,250 Z
+              "
+            />
+
+
+            <path
+              class="trend-line"
+              d="
+                M0,160
+                C60,150 75,125 120,130
+                C170,137 185,175 230,165
+                C280,150 300,90 350,105
+                C405,122 410,145 460,130
+                C520,112 535,95 585,110
+                C625,122 650,85 700,95
+              "
+            />
+
+          </svg>
+
+
+          <div class="chart-labels">
+            <span>Sep 2</span>
+            <span>Sep 5</span>
+            <span>Sep 8</span>
+            <span>Sep 11</span>
+            <span>Today</span>
+          </div>
+
+        </div>
+
+
+        <div class="trend-footer">
+
+          <div>
+            <span class="trend-number">72%</span>
+            <p>Average well-being score</p>
+          </div>
+
+          <div>
+            <span class="trend-arrow">↗</span>
+            <p>4% improvement this week</p>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="ai-card">
+
+        <div class="ai-icon">✦</div>
+
+        <p class="small-label">AI INSIGHT</p>
+
+        <h2>Your pattern looks stable</h2>
+
+        <p class="ai-text">
+          Your recent check-ins show relatively consistent
+          well-being patterns with a slight positive change
+          during the past week.
+        </p>
+
+        <div class="insight-list">
+
+          <div>
+            <span class="insight-dot"></span>
+
+            <p>
+              Sleep responses have improved across your recent check-ins.
+            </p>
+          </div>
+
+          <div>
+            <span class="insight-dot"></span>
+
+            <p>
+              Daily activity difficulty has remained stable.
+            </p>
+          </div>
+
+          <div>
+            <span class="insight-dot"></span>
+
+            <p>
+              No major negative trend has been detected.
+            </p>
+          </div>
+
+        </div>
+
+        <button
+          class="why-btn"
+          onclick="showExplanation()"
+        >
+          Why am I seeing this?
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <section class="week-card">
+
+      <div class="week-heading">
+
+        <div>
+          <p class="small-label">YOUR WEEK</p>
+          <h2>Check-in consistency</h2>
+        </div>
+
+        <span>5 of 7 completed</span>
+
+      </div>
+
+
+      <div class="week-days">
+
+        <div class="day complete">
+          <span>M</span>
+          <div class="day-circle">✓</div>
+        </div>
+
+        <div class="day complete">
+          <span>T</span>
+          <div class="day-circle">✓</div>
+        </div>
+
+        <div class="day complete">
+          <span>W</span>
+          <div class="day-circle">✓</div>
+        </div>
+
+        <div class="day">
+          <span>T</span>
+          <div class="day-circle"></div>
+        </div>
+
+        <div class="day complete">
+          <span>F</span>
+          <div class="day-circle">✓</div>
+        </div>
+
+        <div class="day">
+          <span>S</span>
+          <div class="day-circle"></div>
+        </div>
+
+        <div class="day complete">
+          <span>S</span>
+          <div class="day-circle">✓</div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="bottom-grid">
+
+      <div class="action-card">
+
+        <div class="action-icon">
+          ✓
+        </div>
+
+        <div>
+          <h3>Ready for today's check-in?</h3>
+
+          <p>
+            It usually takes less than two minutes.
+          </p>
+        </div>
+
+        <button onclick="startCheckin()">
+          Start Check-in
+        </button>
+
+      </div>
+
+
+      <div class="privacy-card">
+
+        <div class="privacy-icon">
+          🔒
+        </div>
+
+        <div>
+
+          <h3>Your privacy matters</h3>
+
+          <p>
+            Your responses are available only to authorised
+            support personnel in this prototype.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+  <!-- ========================= -->
+<!-- MIRA AI COMPANION -->
+<!-- ========================= -->
+
+<button
+  class="mira-fab"
+  id="miraFab"
+  type="button"
+  onclick="toggleMiraChat()"
+>
+  <span class="mira-fab-icon">✦</span>
+
+  <span>
+    <strong>Talk to Mira</strong>
+    <small>AI Companion</small>
+  </span>
+</button>
+  <span class="mira-spark">✦</span>
+
+  <div>
+    <strong>Talk to Mira</strong>
+    <span>AI Companion</span>
+  </div>
+</button>
+
+
+<div
+  class="mira-chat"
+  id="miraChat"
+>
+
+  <div class="mira-header">
+
+    <div class="mira-profile">
+
+      <div class="mira-avatar">
+        ✦
+      </div>
+
+      <div>
+
+        <div class="mira-name-row">
+          <h3>Mira</h3>
+          <span>AI</span>
+        </div>
+
+        <p>
+          Your support companion
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="mira-close"
+      onclick="toggleMiraChat()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="mira-safety-note">
+
+    <span>◇</span>
+
+    Mira can listen and offer general support,
+    but she isn't a therapist or a replacement
+    for professional care.
+
+  </div>
+
+
+  <div
+    class="mira-messages"
+    id="miraMessages"
+  >
+
+    <div class="message-row bot-row">
+
+      <div class="mini-mira-avatar">
+        ✦
+      </div>
+
+      <div class="message bot-message">
+
+        <p>
+          Hey 👋 I'm Mira.
+        </p>
+
+        <p>
+          How has your day been?
+        </p>
+
+        <span class="message-time">
+          Just now
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="quick-replies"
+    id="quickReplies"
+  >
+
+    <button
+      onclick="quickReply('I had a good day')"
+    >
+      Pretty good
+    </button>
+
+    <button
+      onclick="quickReply('Today was stressful')"
+    >
+      Stressful day
+    </button>
+
+    <button
+      onclick="quickReply('I just want to talk')"
+    >
+      Just want to talk
+    </button>
+
+  </div>
+
+
+  <div class="typing-area">
+
+    <textarea
+      id="miraInput"
+      placeholder="Talk to Mira..."
+      rows="1"
+    ></textarea>
+
+    <button
+      class="send-btn"
+      onclick="sendMiraMessage()"
+    >
+      ➜
+    </button>
+
+  </div>
+
+
+  <div class="mira-footer">
+    AI-generated support • Human help remains available
+  </div>
+
+</div>
+
+
+  <div
+    id="explanationModal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <button
+        class="close-modal"
+        onclick="closeExplanation()"
+      >
+        ×
+      </button>
+
+      <p class="small-label">
+        EXPLAINABLE AI
+      </p>
+
+      <h2>Why this insight was generated</h2>
+
+      <p>
+        MindCare combines recent questionnaire responses,
+        check-in consistency and changes across previous
+        well-being scores.
+      </p>
+
+      <div class="modal-reason">
+        ✓ Sleep trend improved
+      </div>
+
+      <div class="modal-reason">
+        ✓ Mood responses remained consistent
+      </div>
+
+      <div class="modal-reason">
+        ✓ No major decline detected
+      </div>
+
+      <p class="disclaimer">
+        This indicator supports human review and is not a medical diagnosis.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
+<script src="dashboard.js"></script>

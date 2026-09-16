@@ -1,0 +1,1605 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+}
+
+:root {
+  --background: #f5f7f3;
+  --surface: #ffffff;
+  --surface-soft: #edf3ef;
+
+  --primary: #426b60;
+  --primary-dark: #294b43;
+  --primary-light: #7ba99b;
+
+  --lavender: #eeeaf7;
+  --lavender-dark: #756a94;
+
+  --text: #21312d;
+  --muted: #76847f;
+
+  --border: #dde7e1;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+}
+
+
+/* ============================= */
+/* TOP NAVIGATION */
+/* ============================= */
+
+.topbar {
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 6%;
+
+  background: rgba(255,255,255,0.9);
+
+  border-bottom: 1px solid var(--border);
+
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--primary);
+
+  color: white;
+
+  border-radius: 14px;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand h2 {
+  font-size: 19px;
+}
+
+.brand span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+
+nav {
+  display: flex;
+  gap: 35px;
+}
+
+nav a {
+  text-decoration: none;
+
+  color: var(--muted);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  position: relative;
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--primary-dark);
+}
+
+nav a.active::after {
+  content: "";
+
+  position: absolute;
+
+  height: 2px;
+  width: 100%;
+
+  left: 0;
+  bottom: -12px;
+
+  background: var(--primary);
+}
+
+
+.profile-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #65a879;
+}
+
+.profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-text strong {
+  font-size: 13px;
+}
+
+.profile-text span {
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+
+.profile-area button {
+  margin-left: 10px;
+
+  padding: 8px 12px;
+
+  border: 1px solid var(--border);
+
+  background: white;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+
+/* ============================= */
+/* CONTAINER */
+/* ============================= */
+
+.page-container {
+  max-width: 1250px;
+
+  margin: auto;
+
+  padding:
+    55px
+    25px
+    80px;
+}
+
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero-section {
+  padding-bottom: 45px;
+}
+
+
+.eyebrow,
+.small-label {
+  color: var(--primary);
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+.hero-text h1 {
+  margin-top: 8px;
+
+  font-size: 42px;
+
+  font-weight: 600;
+
+  max-width: 700px;
+}
+
+.hero-text h1 span {
+  display: block;
+
+  color: var(--primary);
+
+  margin-top: 7px;
+}
+
+
+.hero-description {
+  color: var(--muted);
+
+  max-width: 570px;
+
+  line-height: 1.6;
+
+  margin-top: 15px;
+}
+
+
+/* ============================= */
+/* MOOD SELECTOR */
+/* ============================= */
+
+.mood-selector {
+  display: flex;
+
+  gap: 16px;
+
+  margin-top: 35px;
+}
+
+
+.mood-btn {
+  width: 120px;
+  height: 105px;
+
+  background: white;
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 9px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+
+.mood-btn:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 24px
+    rgba(39, 74, 65, 0.08);
+}
+
+
+.mood-btn.active {
+  background: var(--surface-soft);
+
+  border: 2px solid var(--primary);
+}
+
+
+.emoji {
+  font-size: 29px;
+}
+
+
+.mood-btn span:last-child {
+  color: var(--text);
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+#moodMessage {
+  margin-top: 14px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+
+/* ============================= */
+/* MAIN GRID */
+/* ============================= */
+
+.main-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.6fr
+    0.9fr;
+
+  gap: 24px;
+}
+
+
+.trend-card,
+.ai-card,
+.week-card,
+.action-card,
+.privacy-card {
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 24px;
+}
+
+
+.trend-card {
+  padding: 30px;
+}
+
+
+.card-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: start;
+}
+
+
+.card-heading h2,
+.ai-card h2,
+.week-heading h2 {
+  margin-top: 8px;
+
+  font-size: 21px;
+}
+
+
+.stable-tag {
+  background: #e3f1e8;
+
+  color: #407452;
+
+  padding: 7px 12px;
+
+  border-radius: 30px;
+
+  font-size: 12px;
+}
+
+
+/* ============================= */
+/* SVG CHART */
+/* ============================= */
+
+.chart-wrapper {
+  margin-top: 25px;
+}
+
+
+.trend-chart {
+  width: 100%;
+
+  height: 235px;
+}
+
+
+.grid-line {
+  stroke: #e7ece8;
+
+  stroke-width: 1;
+}
+
+
+.trend-line {
+  fill: none;
+
+  stroke: var(--primary-light);
+
+  stroke-width: 5;
+
+  stroke-linecap: round;
+}
+
+
+.area {
+  fill: url(#areaGradient);
+}
+
+
+.chart-labels {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
+
+.trend-footer {
+  display: flex;
+
+  gap: 35px;
+
+  margin-top: 25px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+.trend-footer > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.trend-number {
+  font-size: 24px;
+
+  font-weight: 700;
+
+  color: var(--primary-dark);
+}
+
+
+.trend-arrow {
+  display: flex;
+
+  width: 35px;
+  height: 35px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: var(--surface-soft);
+
+  color: var(--primary);
+}
+
+
+.trend-footer p {
+  color: var(--muted);
+
+  font-size: 12px;
+
+  max-width: 130px;
+}
+
+
+/* ============================= */
+/* AI CARD */
+/* ============================= */
+
+.ai-card {
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f0edf8,
+      #ffffff
+    );
+}
+
+
+.ai-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: var(--lavender);
+
+  color: var(--lavender-dark);
+
+  border-radius: 15px;
+
+  margin-bottom: 20px;
+
+  font-size: 23px;
+}
+
+
+.ai-text {
+  color: var(--muted);
+
+  line-height: 1.65;
+
+  font-size: 14px;
+
+  margin-top: 13px;
+}
+
+
+.insight-list {
+  margin-top: 25px;
+}
+
+
+.insight-list > div {
+  display: flex;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+}
+
+
+.insight-dot {
+  flex-shrink: 0;
+
+  width: 8px;
+  height: 8px;
+
+  margin-top: 5px;
+
+  border-radius: 50%;
+
+  background: var(--primary-light);
+}
+
+
+.insight-list p {
+  color: #66736f;
+
+  font-size: 12px;
+
+  line-height: 1.45;
+}
+
+
+.why-btn {
+  margin-top: 12px;
+
+  padding: 11px 16px;
+
+  border-radius: 10px;
+
+  border: none;
+
+  background: var(--primary-dark);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
+/* ============================= */
+/* WEEK */
+/* ============================= */
+
+.week-card {
+  margin-top: 24px;
+
+  padding: 28px 32px;
+}
+
+
+.week-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+
+.week-heading > span {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+.week-days {
+  margin-top: 30px;
+
+  display: flex;
+
+  justify-content: space-between;
+}
+
+
+.day {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.day > span {
+  font-size: 12px;
+
+  color: var(--muted);
+}
+
+
+.day-circle {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  border:
+    2px solid
+    var(--border);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 13px;
+}
+
+
+.day.complete .day-circle {
+  background: var(--surface-soft);
+
+  border-color: var(--primary-light);
+
+  color: var(--primary);
+
+  font-weight: 700;
+}
+
+
+/* ============================= */
+/* BOTTOM */
+/* ============================= */
+
+.bottom-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.25fr
+    0.75fr;
+
+  gap: 24px;
+
+  margin-top: 24px;
+}
+
+
+.action-card,
+.privacy-card {
+  padding: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+.action-icon,
+.privacy-icon {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background: var(--surface-soft);
+
+  font-size: 20px;
+}
+
+
+.action-card h3,
+.privacy-card h3 {
+  font-size: 15px;
+}
+
+
+.action-card p,
+.privacy-card p {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  line-height: 1.45;
+
+  font-size: 12px;
+}
+
+
+.action-card button {
+  margin-left: auto;
+
+  white-space: nowrap;
+
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  color: white;
+
+  background: var(--primary);
+
+  cursor: pointer;
+}
+
+
+/* ============================= */
+/* MODAL */
+/* ============================= */
+
+.modal {
+  display: none;
+
+  position: fixed;
+
+  inset: 0;
+
+  background:
+    rgba(27, 42, 37, 0.38);
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 1000;
+
+  padding: 20px;
+}
+
+
+.modal.show {
+  display: flex;
+}
+
+
+.modal-content {
+  width: 100%;
+
+  max-width: 500px;
+
+  background: white;
+
+  padding: 35px;
+
+  border-radius: 24px;
+
+  position: relative;
+}
+
+
+.modal-content h2 {
+  margin:
+    8px 0
+    15px;
+}
+
+
+.modal-content > p {
+  color: var(--muted);
+
+  line-height: 1.55;
+
+  font-size: 13px;
+}
+
+
+.close-modal {
+  position: absolute;
+
+  top: 18px;
+  right: 20px;
+
+  background: transparent;
+
+  border: none;
+
+  font-size: 25px;
+
+  cursor: pointer;
+}
+
+
+.modal-reason {
+  padding: 12px 14px;
+
+  border-radius: 10px;
+
+  background: var(--surface-soft);
+
+  margin-top: 10px;
+
+  font-size: 13px;
+
+  color: var(--primary-dark);
+}
+
+
+.disclaimer {
+  margin-top: 20px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid var(--border);
+
+  font-size: 11px !important;
+}
+
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media(max-width: 900px) {
+
+  nav {
+    display: none;
+  }
+
+  .profile-text {
+    display: none;
+  }
+
+  .page-container {
+    padding-top: 35px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .mood-selector {
+    overflow-x: auto;
+
+    padding-bottom: 8px;
+  }
+
+  .mood-btn {
+    min-width: 105px;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media(max-width: 600px) {
+
+  .topbar {
+    padding: 0 18px;
+  }
+
+  .brand span {
+    display: none;
+  }
+
+  .page-container {
+    padding:
+      30px
+      15px
+      60px;
+  }
+
+  .hero-text h1 {
+    font-size: 27px;
+  }
+
+  .trend-card,
+  .ai-card,
+  .week-card {
+    border-radius: 18px;
+
+    padding: 20px;
+  }
+
+  .trend-chart {
+    height: 180px;
+  }
+
+  .trend-footer {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .week-days {
+    gap: 7px;
+  }
+
+  .day-circle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .action-card {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .action-card button {
+    margin-left: 70px;
+  }
+
+}
+/* =========================================
+   MIRA FLOATING BUTTON - FINAL
+========================================= */
+
+.mira-fab {
+  position: fixed;
+  right: 32px;
+  bottom: 28px;
+
+  width: 210px;
+  min-height: 68px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 11px 16px;
+
+  border: none !important;
+  outline: none;
+
+  border-radius: 22px;
+
+  background: #426b60 !important;
+  color: white !important;
+
+  box-shadow:
+    0 12px 35px rgba(41, 75, 67, 0.25);
+
+  cursor: pointer !important;
+
+  z-index: 99999 !important;
+
+  pointer-events: auto !important;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.mira-fab:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 16px 40px rgba(41, 75, 67, 0.32);
+}
+
+.mira-fab:active {
+  transform: scale(0.97);
+}
+
+
+/* ICON */
+
+.mira-fab-icon {
+  width: 45px;
+  height: 45px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.14);
+
+  color: white;
+
+  font-size: 23px;
+}
+
+
+/* TEXT AREA */
+
+.mira-fab > span:last-child {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  text-align: left;
+}
+
+.mira-fab strong {
+  display: block;
+
+  color: white !important;
+
+  font-size: 14px;
+  font-weight: 650;
+
+  line-height: 1.2;
+}
+
+.mira-fab small {
+  display: block;
+
+  margin-top: 4px;
+
+  color: rgba(255,255,255,0.72) !important;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   MIRA CHAT WINDOW
+========================================= */
+
+.mira-chat {
+  position: fixed;
+
+  right: 32px;
+  bottom: 110px;
+
+  width: 385px;
+  height: 560px;
+
+  display: none;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border:
+    1px solid #dde7e1;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 22px 60px rgba(33, 49, 45, 0.20);
+
+  z-index: 99998 !important;
+}
+
+
+/* WHEN OPEN */
+
+.mira-chat.show {
+  display: flex !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .mira-fab {
+    right: 18px;
+    bottom: 18px;
+
+    width: 185px;
+  }
+
+  .mira-chat {
+    right: 15px;
+    bottom: 100px;
+
+    width:
+      calc(100vw - 30px);
+
+    height: 70vh;
+  }
+
+}
+/* LATEST CHECK-IN CARD */
+
+.live-checkin-card {
+  margin: 22px 0 28px;
+
+  padding: 20px 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  background: linear-gradient(
+    135deg,
+    #edf3ef,
+    #f1eef7
+  );
+
+  border: 1px solid #dde7e1;
+  border-radius: 18px;
+}
+
+.live-label {
+  color: #426b60;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.live-checkin-card h3 {
+  margin-top: 6px;
+  font-size: 18px;
+}
+
+.live-checkin-card p {
+  margin-top: 5px;
+  color: #76847f;
+  font-size: 11px;
+}
+
+.live-score {
+  min-width: 105px;
+  padding: 14px;
+
+  text-align: center;
+
+  background: white;
+  border-radius: 14px;
+}
+
+.live-score span {
+  display: block;
+  color: #76847f;
+  font-size: 8px;
+}
+
+.live-score strong {
+  display: block;
+  margin-top: 5px;
+
+  color: #294b43;
+  font-size: 21px;
+}
+/* =========================================
+   MIRA CHAT - INNER UI RESTORE
+========================================= */
+
+.mira-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  background: #edf3ef;
+  border-bottom: 1px solid #dde7e1;
+}
+
+.mira-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mira-avatar {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #426b60;
+  color: white;
+  border-radius: 14px;
+  font-size: 20px;
+}
+
+.mira-name-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.mira-name-row h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #21312d;
+}
+
+.mira-name-row span {
+  padding: 3px 7px;
+  border-radius: 20px;
+  background: #eeeaf7;
+  color: #756a94;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.mira-profile p {
+  margin: 3px 0 0;
+  color: #76847f;
+  font-size: 10px;
+}
+
+.mira-close {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: #76847f;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.mira-close:hover {
+  background: #dde7e1;
+}
+
+
+/* SAFETY MESSAGE */
+
+.mira-safety {
+  margin: 12px 14px 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f7f5fb;
+  color: #756a94;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+
+/* CHAT MESSAGES AREA */
+
+.mira-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  background: #ffffff;
+}
+
+.mira-message {
+  max-width: 82%;
+  padding: 11px 13px;
+  border-radius: 15px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background: #edf3ef;
+  color: #21312d;
+  border-bottom-left-radius: 5px;
+}
+
+.user-message {
+  align-self: flex-end;
+  background: #426b60;
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+
+/* TIME */
+
+.mira-time {
+  display: block;
+  margin-top: 5px;
+  color: #98a49f;
+  font-size: 8px;
+}
+
+
+/* QUICK REPLIES */
+
+.mira-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0 16px 13px;
+  background: white;
+}
+
+.mira-quick-replies button {
+  padding: 8px 11px;
+  border: 1px solid #cddbd5;
+  border-radius: 20px;
+  background: white;
+  color: #426b60;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mira-quick-replies button:hover {
+  background: #edf3ef;
+  border-color: #7ba99b;
+}
+
+
+/* INPUT AREA */
+
+.mira-input-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  padding: 12px 14px;
+  background: #f8faf8;
+  border-top: 1px solid #dde7e1;
+}
+
+.mira-input-area textarea {
+  flex: 1;
+  min-height: 40px;
+  max-height: 90px;
+  resize: none;
+  padding: 11px 12px;
+  border: 1px solid #dde7e1;
+  border-radius: 13px;
+  outline: none;
+  background: white;
+  color: #21312d;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.mira-input-area textarea:focus {
+  border-color: #7ba99b;
+}
+
+.mira-send {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 12px;
+  background: #426b60;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.mira-send:hover {
+  background: #294b43;
+}
+
+
+/* FOOTER */
+
+.mira-footer {
+  padding: 8px 14px 11px;
+  text-align: center;
+  background: #f8faf8;
+  color: #98a49f;
+  font-size: 8px;
+}
+
+
+/* TYPING DOTS */
+
+.typing-dots {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+}
+
+.typing-dots span {
+  width: 5px;
+  height: 5px;
+  background: #7ba99b;
+  border-radius: 50%;
+  animation: miraTyping 1.2s infinite;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes miraTyping {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+/* =========================================
+   MIRA EXACT HTML FIX
+========================================= */
+
+/* SAFETY NOTE */
+
+.mira-safety-note {
+  margin: 12px 16px;
+  padding: 10px 12px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  background: #f5f2fa;
+  border: 1px solid #e6e0f0;
+  border-radius: 12px;
+
+  color: #756a94;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.mira-safety-note span {
+  flex-shrink: 0;
+  color: #756a94;
+}
+
+
+/* MESSAGES CONTAINER */
+
+.mira-messages {
+  flex: 1;
+  min-height: 0;
+
+  padding: 10px 16px 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+  overflow-y: auto;
+
+  background: #ffffff;
+}
+
+
+/* MESSAGE ROW */
+
+.message-row {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.bot-row {
+  justify-content: flex-start;
+}
+
+
+/* SMALL MIRA ICON */
+
+.mini-mira-avatar {
+  width: 28px;
+  height: 28px;
+
+  flex: 0 0 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 3px;
+
+  border-radius: 9px;
+
+  background: #426b60;
+  color: white;
+
+  font-size: 12px;
+}
+
+
+/* BOT MESSAGE */
+
+.message.bot-message {
+  width: auto;
+  max-width: 78%;
+
+  padding: 10px 13px;
+
+  background: #edf3ef;
+
+  border-radius: 14px 14px 14px 5px;
+
+  color: #21312d;
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.message.bot-message p {
+  margin: 0 0 4px;
+}
+
+.message.bot-message p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* JS-CREATED BOT MESSAGES */
+
+.mira-message.bot-message {
+  align-self: flex-start;
+
+  width: auto;
+  max-width: 78%;
+
+  padding: 10px 13px;
+
+  background: #edf3ef;
+
+  border-radius: 14px 14px 14px 5px;
+
+  color: #21312d;
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+
+/* JS-CREATED USER MESSAGES */
+
+.mira-message.user-message {
+  align-self: flex-end;
+
+  width: auto;
+  max-width: 78%;
+
+  padding: 10px 13px;
+
+  background: #426b60;
+
+  border-radius: 14px 14px 5px 14px;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  line-height: 1.45;
+
+}

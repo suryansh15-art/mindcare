@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    MindCare Administration
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="admin.css"
+  >
+
+</head>
+
+<body>
+
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-icon">
+        M
+      </div>
+
+      <div>
+
+        <h2>
+          MindCare
+        </h2>
+
+        <span>
+          Administration
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <nav>
+
+      <a href="#" class="active">
+        Overview
+      </a>
+
+      <a href="#">
+        Network
+      </a>
+
+      <a href="#">
+        Reports
+      </a>
+
+      <a href="#">
+        Access Control
+      </a>
+
+    </nav>
+
+
+    <button
+      onclick="logout()"
+      class="logout-btn"
+    >
+      Logout
+    </button>
+
+  </header>
+
+
+  <main class="container">
+
+
+    <section class="heading-row">
+
+      <div>
+
+        <p class="eyebrow">
+          SYSTEM OVERVIEW
+        </p>
+
+        <h1>
+          Population well-being analytics
+        </h1>
+
+        <p>
+          Aggregated and privacy-aware monitoring
+          across supported regions.
+        </p>
+
+      </div>
+
+
+      <div class="status-pill">
+
+        <span></span>
+
+        System operational
+
+      </div>
+
+    </section>
+
+
+    <section class="metrics">
+
+      <div class="metric-card">
+
+        <span>
+          People monitored
+        </span>
+
+        <strong>
+          4,821
+        </strong>
+
+        <small>
+          +126 this month
+        </small>
+
+      </div>
+
+
+      <div class="metric-card">
+
+        <span>
+          Active counsellors
+        </span>
+
+        <strong>
+          84
+        </strong>
+
+        <small>
+          Across 12 centres
+        </small>
+
+      </div>
+
+
+      <div class="metric-card">
+
+        <span>
+          Cases needing review
+        </span>
+
+        <strong>
+          143
+        </strong>
+
+        <small class="attention">
+          18 high priority
+        </small>
+
+      </div>
+
+
+      <div class="metric-card">
+
+        <span>
+          Follow-up completion
+        </span>
+
+        <strong>
+          91%
+        </strong>
+
+        <small>
+          Last 30 days
+        </small>
+
+      </div>
+
+    </section>
+
+
+    <section class="analytics-grid">
+
+
+      <div class="large-panel">
+
+        <div class="panel-header">
+
+          <div>
+
+            <p class="small-label">
+              WELL-BEING TREND
+            </p>
+
+            <h2>
+              Network trend
+            </h2>
+
+          </div>
+
+          <select>
+
+            <option>
+              Last 30 days
+            </option>
+
+            <option>
+              Last 90 days
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <svg
+          class="analytics-chart"
+          viewBox="0 0 800 280"
+          preserveAspectRatio="none"
+        >
+
+          <line
+            x1="0"
+            y1="70"
+            x2="800"
+            y2="70"
+            class="grid-line"
+          />
+
+          <line
+            x1="0"
+            y1="140"
+            x2="800"
+            y2="140"
+            class="grid-line"
+          />
+
+          <line
+            x1="0"
+            y1="210"
+            x2="800"
+            y2="210"
+            class="grid-line"
+          />
+
+
+          <path
+            class="trend-line"
+            d="
+              M0,165
+              C70,155 90,140 150,145
+              C230,152 250,115 320,120
+              C390,128 430,95 500,105
+              C570,115 600,80 660,90
+              C720,98 750,75 800,70
+            "
+          />
+
+        </svg>
+
+
+        <div class="chart-labels">
+
+          <span>
+            Aug 15
+          </span>
+
+          <span>
+            Aug 22
+          </span>
+
+          <span>
+            Aug 29
+          </span>
+
+          <span>
+            Sep 5
+          </span>
+
+          <span>
+            Today
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="priority-panel">
+
+        <p class="small-label">
+          PRIORITY DISTRIBUTION
+        </p>
+
+        <h2>
+          Current case status
+        </h2>
+
+
+        <div class="donut">
+
+          <div class="donut-center">
+
+            <strong>
+              143
+            </strong>
+
+            <span>
+              Review
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="legend">
+
+          <div>
+
+            <span class="dot high"></span>
+
+            High priority
+
+            <strong>
+              18
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span class="dot medium"></span>
+
+            Medium priority
+
+            <strong>
+              49
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span class="dot low"></span>
+
+            Routine review
+
+            <strong>
+              76
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="bottom-grid">
+
+
+      <div class="region-panel">
+
+        <div class="panel-header">
+
+          <div>
+
+            <p class="small-label">
+              REGIONAL VIEW
+            </p>
+
+            <h2>
+              Support centre activity
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="region-row">
+
+          <span>
+            Centre A
+          </span>
+
+          <div class="progress">
+
+            <div
+              style="width:82%"
+            ></div>
+
+          </div>
+
+          <strong>
+            82%
+          </strong>
+
+        </div>
+
+
+        <div class="region-row">
+
+          <span>
+            Centre B
+          </span>
+
+          <div class="progress">
+
+            <div
+              style="width:74%"
+            ></div>
+
+          </div>
+
+          <strong>
+            74%
+          </strong>
+
+        </div>
+
+
+        <div class="region-row">
+
+          <span>
+            Centre C
+          </span>
+
+          <div class="progress">
+
+            <div
+              style="width:91%"
+            ></div>
+
+          </div>
+
+          <strong>
+            91%
+          </strong>
+
+        </div>
+
+
+        <div class="region-row">
+
+          <span>
+            Centre D
+          </span>
+
+          <div class="progress">
+
+            <div
+              style="width:68%"
+            ></div>
+
+          </div>
+
+          <strong>
+            68%
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="privacy-panel">
+
+        <div class="privacy-icon">
+          ◇
+        </div>
+
+        <p class="small-label">
+          PRIVACY STATUS
+        </p>
+
+        <h2>
+          Aggregated analytics only
+        </h2>
+
+        <p>
+          Administrative views are designed to use
+          aggregated monitoring data. Individual
+          conversation content is restricted from this view.
+        </p>
+
+        <button
+          onclick="viewAudit()"
+        >
+          View access audit
+        </button>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <script src="admin.js"></script>
+
+</body>
+</html>

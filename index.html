@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindCare - Secure Access</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="page-shell">
+
+    <section class="visual-panel">
+
+      <div class="brand">
+
+        <div class="brand-icon">
+          M
+        </div>
+
+        <div>
+          <h2>MindCare</h2>
+          <span>Well-being Intelligence</span>
+        </div>
+
+      </div>
+
+
+      <div class="visual-content">
+
+        <p class="eyebrow">
+          AI-ASSISTED WELL-BEING SUPPORT
+        </p>
+
+        <h1>
+          Better signals.
+          <span>Earlier support.</span>
+        </h1>
+
+        <p class="description">
+          MindCare helps support teams understand changes in
+          well-being patterns through secure check-ins,
+          trend analysis and explainable AI insights.
+        </p>
+
+
+        <div class="signal-card">
+
+          <div class="signal-heading">
+
+            <div>
+              <span class="mini-label">
+                WELL-BEING SIGNAL
+              </span>
+
+              <h3>Stable pattern detected</h3>
+            </div>
+
+            <span class="signal-badge">
+              Stable
+            </span>
+
+          </div>
+
+
+          <div class="mini-chart">
+
+            <div class="chart-line line-1"></div>
+            <div class="chart-line line-2"></div>
+            <div class="chart-line line-3"></div>
+
+            <svg
+              viewBox="0 0 500 140"
+              preserveAspectRatio="none"
+            >
+
+              <path
+                d="
+                  M0,100
+                  C60,95 70,70 120,75
+                  C170,80 185,105 230,90
+                  C275,76 290,48 345,60
+                  C395,70 420,45 500,55
+                "
+              />
+
+            </svg>
+
+          </div>
+
+
+          <div class="signal-footer">
+
+            <div>
+              <strong>14</strong>
+              <span>Recent check-ins</span>
+            </div>
+
+            <div>
+              <strong>+4%</strong>
+              <span>Weekly change</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="privacy-note">
+          <span>◈</span>
+
+          <p>
+            Designed for privacy-aware and human-supervised support.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="login-panel">
+
+      <div class="login-card">
+
+        <p class="small-label">
+          SECURE ACCESS
+        </p>
+
+        <h2>
+          Welcome back
+        </h2>
+
+        <p class="subtitle">
+          Choose your role and sign in to continue.
+        </p>
+
+
+        <div class="role-selector">
+
+          <button
+            class="role-btn active"
+            data-role="user"
+          >
+            <span>◎</span>
+            User
+          </button>
+
+          <button
+            class="role-btn"
+            data-role="counsellor"
+          >
+            <span>◇</span>
+            Counsellor
+          </button>
+
+          <button
+            class="role-btn"
+            data-role="admin"
+          >
+            <span>△</span>
+            Admin
+          </button>
+
+        </div>
+
+
+        <form id="loginForm">
+
+          <div class="input-group">
+
+            <label for="email">
+              Email address
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="name@example.com"
+              required
+            >
+
+          </div>
+
+
+          <div class="input-group">
+
+            <div class="password-header">
+
+              <label for="password">
+                Password
+              </label>
+
+              <a href="#">
+                Forgot password?
+              </a>
+
+            </div>
+
+
+            <div class="password-wrapper">
+
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+              >
+
+              <button
+                type="button"
+                id="togglePassword"
+              >
+                Show
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <label class="remember-row">
+
+            <input
+              type="checkbox"
+              id="remember"
+            >
+
+            <span>
+              Keep me signed in
+            </span>
+
+          </label>
+
+
+          <button
+            type="submit"
+            class="login-btn"
+          >
+            Continue securely
+            <span>→</span>
+          </button>
+
+          <p id="message"></p>
+
+        </form>
+
+
+        <div class="demo-box">
+
+          <div class="demo-icon">
+            i
+          </div>
+
+          <p>
+            <strong>Prototype mode</strong><br>
+            Any email and password can be used for demonstration.
+          </p>
+
+        </div>
+
+
+        <p class="disclaimer">
+          MindCare supports trained professionals and does not replace clinical diagnosis.
+        </p>
+
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

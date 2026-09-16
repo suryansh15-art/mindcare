@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MindCare | Counsellor</title>
+
+  <link rel="stylesheet" href="counsellor.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="brand">
+    <div class="brand-logo">M</div>
+
+    <div>
+      <h2>MindCare</h2>
+      <p>Counsellor Workspace</p>
+    </div>
+  </div>
+
+  <div class="header-right">
+
+    <div class="status">
+      <span></span>
+      Counsellor
+    </div>
+
+    <button onclick="logout()">Logout</button>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+  <!-- INTRO -->
+
+  <section class="welcome">
+
+    <div>
+      <p class="eyebrow">SUPPORT OVERVIEW</p>
+
+      <h1>Good afternoon, Counsellor.</h1>
+
+      <p>
+        Review support-priority indicators and recent
+        changes across assigned users.
+      </p>
+    </div>
+
+    <div class="updated">
+      Last updated
+      <strong>Just now</strong>
+    </div>
+
+  </section>
+
+
+  <!-- STATS -->
+
+  <section class="stats">
+
+    <div class="stat-card">
+      <span>Assigned users</span>
+      <strong>24</strong>
+      <small>Currently monitored</small>
+    </div>
+
+    <div class="stat-card">
+      <span>Stable</span>
+      <strong>16</strong>
+      <small>No major recent change</small>
+    </div>
+
+    <div class="stat-card attention">
+      <span>Needs attention</span>
+      <strong>6</strong>
+      <small>Review recommended</small>
+    </div>
+
+    <div class="stat-card priority">
+      <span>Priority review</span>
+      <strong>2</strong>
+      <small>Human review suggested</small>
+    </div>
+
+  </section>
+
+
+  <!-- MAIN GRID -->
+
+  <section class="dashboard-grid">
+
+    <!-- CASE QUEUE -->
+
+    <div class="panel case-panel">
+
+      <div class="panel-header">
+
+        <div>
+          <p class="eyebrow">CASE QUEUE</p>
+          <h2>Support priority</h2>
+        </div>
+
+        <select id="priorityFilter">
+          <option value="all">All cases</option>
+          <option value="priority">Priority</option>
+          <option value="attention">Needs attention</option>
+          <option value="stable">Stable</option>
+        </select>
+
+      </div>
+
+
+      <div class="case-list" id="caseList">
+
+        <div class="case-item" data-level="priority">
+
+          <div class="person">
+            <div class="avatar">A</div>
+
+            <div>
+              <strong>User A-104</strong>
+              <span>Updated 12 min ago</span>
+            </div>
+          </div>
+
+          <div class="case-info">
+            <span class="badge priority-badge">
+              Priority review
+            </span>
+
+            <strong>78</strong>
+          </div>
+
+          <button onclick="openCase('A-104', 78, 'Priority Review')">
+            Review
+          </button>
+
+        </div>
+
+
+        <div class="case-item" data-level="attention">
+
+          <div class="person">
+            <div class="avatar">R</div>
+
+            <div>
+              <strong>User R-218</strong>
+              <span>Updated 28 min ago</span>
+            </div>
+          </div>
+
+          <div class="case-info">
+            <span class="badge attention-badge">
+              Needs attention
+            </span>
+
+            <strong>56</strong>
+          </div>
+
+          <button onclick="openCase('R-218', 56, 'Needs Attention')">
+            Review
+          </button>
+
+        </div>
+
+
+        <div class="case-item" data-level="attention">
+
+          <div class="person">
+            <div class="avatar">K</div>
+
+            <div>
+              <strong>User K-031</strong>
+              <span>Updated 1 hr ago</span>
+            </div>
+          </div>
+
+          <div class="case-info">
+            <span class="badge attention-badge">
+              Needs attention
+            </span>
+
+            <strong>47</strong>
+          </div>
+
+          <button onclick="openCase('K-031', 47, 'Needs Attention')">
+            Review
+          </button>
+
+        </div>
+
+
+        <div class="case-item" data-level="stable">
+
+          <div class="person">
+            <div class="avatar">S</div>
+
+            <div>
+              <strong>User S-146</strong>
+              <span>Updated 2 hrs ago</span>
+            </div>
+          </div>
+
+          <div class="case-info">
+            <span class="badge stable-badge">
+              Stable
+            </span>
+
+            <strong>22</strong>
+          </div>
+
+          <button onclick="openCase('S-146', 22, 'Stable')">
+            Review
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- AI SUMMARY -->
+
+    <aside class="panel ai-panel">
+
+      <div class="ai-icon">✦</div>
+
+      <p class="eyebrow">AI-ASSISTED SUMMARY</p>
+
+      <h2>2 cases may need earlier review</h2>
+
+      <p>
+        Recent check-in patterns indicate changes in
+        well-being responses for a small number of users.
+      </p>
+
+      <div class="signal">
+        <span>↓</span>
+
+        <div>
+          <strong>Recent trend change</strong>
+          <p>
+            Multiple check-in indicators changed
+            compared with previous responses.
+          </p>
+        </div>
+      </div>
+
+      <div class="signal">
+        <span>◷</span>
+
+        <div>
+          <strong>Reduced engagement</strong>
+          <p>
+            Some scheduled check-ins were missed.
+          </p>
+        </div>
+      </div>
+
+      <div class="human-note">
+        AI indicators support prioritisation only.
+        Final decisions remain with authorised professionals.
+      </div>
+
+    </aside>
+
+  </section>
+
+
+  <!-- TREND -->
+
+  <section class="panel trend-panel">
+
+    <div class="panel-header">
+
+      <div>
+        <p class="eyebrow">SYSTEM OVERVIEW</p>
+        <h2>Support-priority distribution</h2>
+      </div>
+
+      <span class="period">Past 7 days</span>
+
+    </div>
+
+
+    <div class="bars">
+
+      <div class="bar-row">
+
+        <span>Stable</span>
+
+        <div class="bar-track">
+          <div class="bar stable-bar" style="width:67%"></div>
+        </div>
+
+        <strong>16</strong>
+
+      </div>
+
+
+      <div class="bar-row">
+
+        <span>Attention</span>
+
+        <div class="bar-track">
+          <div class="bar attention-bar" style="width:25%"></div>
+        </div>
+
+        <strong>6</strong>
+
+      </div>
+
+
+      <div class="bar-row">
+
+        <span>Priority</span>
+
+        <div class="bar-track">
+          <div class="bar priority-bar" style="width:8%"></div>
+        </div>
+
+        <strong>2</strong>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- CASE MODAL -->
+
+<div class="modal" id="caseModal">
+
+  <div class="modal-box">
+
+    <button class="close" onclick="closeCase()">×</button>
+
+    <p class="eyebrow">CASE REVIEW</p>
+
+    <h2 id="modalUser">User</h2>
+
+    <div class="risk-box">
+
+      <div>
+        <span>Support indicator</span>
+        <strong id="modalScore">--</strong>
+      </div>
+
+      <span class="modal-badge" id="modalStatus">
+        --
+      </span>
+
+    </div>
+
+    <h3>Explainable indicators</h3>
+
+    <ul>
+      <li>Recent self-reported well-being responses</li>
+      <li>Changes compared with previous check-ins</li>
+      <li>Check-in consistency and engagement pattern</li>
+    </ul>
+
+    <div class="action-box">
+
+      <strong>Suggested next step</strong>
+
+      <p>
+        Review the case context and determine whether
+        follow-up support is appropriate.
+      </p>
+
+    </div>
+
+    <button class="primary-btn" onclick="markReviewed()">
+      Mark as reviewed
+    </button>
+
+  </div>
+
+</div>
+
+
+<script src="counsellor.js"></script>
+
+</body>
+</html>

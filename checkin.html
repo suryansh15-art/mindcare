@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Check-in</title>
+  <link rel="stylesheet" href="checkin.css">
+</head>
+<body>
+
+  <div class="checkin-container">
+
+    <div class="header">
+      <h1>Daily Well-being Check-in</h1>
+      <p>
+        Your responses help identify changes in your well-being over time.
+      </p>
+    </div>
+
+    <form id="checkinForm">
+
+      <div class="question">
+
+        <h3>1. How have you been feeling overall?</h3>
+
+        <label>
+          <input type="radio" name="mood" value="1" required>
+          Comfortable
+        </label>
+
+        <label>
+          <input type="radio" name="mood" value="2">
+          Okay
+        </label>
+
+        <label>
+          <input type="radio" name="mood" value="3">
+          Stressed
+        </label>
+
+        <label>
+          <input type="radio" name="mood" value="4">
+          Very overwhelmed
+        </label>
+
+      </div>
+
+      <div class="question">
+
+        <h3>2. How has your sleep been recently?</h3>
+
+        <label>
+          <input type="radio" name="sleep" value="1" required>
+          Good
+        </label>
+
+        <label>
+          <input type="radio" name="sleep" value="2">
+          Mostly okay
+        </label>
+
+        <label>
+          <input type="radio" name="sleep" value="3">
+          Poor
+        </label>
+
+        <label>
+          <input type="radio" name="sleep" value="4">
+          Very poor
+        </label>
+
+      </div>
+
+      <div class="question">
+
+        <h3>3. How manageable have your daily activities felt?</h3>
+
+        <label>
+          <input type="radio" name="activities" value="1" required>
+          Very manageable
+        </label>
+
+        <label>
+          <input type="radio" name="activities" value="2">
+          Mostly manageable
+        </label>
+
+        <label>
+          <input type="radio" name="activities" value="3">
+          Difficult
+        </label>
+
+        <label>
+          <input type="radio" name="activities" value="4">
+          Very difficult
+        </label>
+
+      </div>
+
+      <div class="question">
+
+        <h3>4. Do you feel you have enough support around you?</h3>
+
+        <label>
+          <input type="radio" name="support" value="1" required>
+          Yes
+        </label>
+
+        <label>
+          <input type="radio" name="support" value="2">
+          Mostly
+        </label>
+
+        <label>
+          <input type="radio" name="support" value="3">
+          Not much
+        </label>
+
+        <label>
+          <input type="radio" name="support" value="4">
+          No
+        </label>
+
+      </div>
+
+      <div class="question">
+
+        <h3>Optional note</h3>
+
+        <textarea
+          id="journal"
+          placeholder="Share anything you would like your support team to know..."
+        ></textarea>
+
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Submit Check-in
+      </button>
+
+    </form>
+
+    <div id="resultBox" class="result-box hidden">
+
+      <h2>Check-in Submitted ✓</h2>
+
+      <div id="score"></div>
+
+      <p id="riskLevel"></p>
+
+      <div class="explanation">
+
+        <h3>Why this result?</h3>
+
+        <p id="explanationText"></p>
+
+      </div>
+
+      <button onclick="goDashboard()">
+        Back to Dashboard
+      </button>
+
+    </div>
+
+  </div>
+
+  <script src="checkin.js"></script>
+</body>
+</html>
